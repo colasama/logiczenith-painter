@@ -3,7 +3,7 @@ package LoPainter.stage;
 import javafx.scene.paint.Color;
 
 public class Shape {
-    public static String toolName = "填充";
+    public static String toolName = "LINE";
     public static String lineSize = "7";
     public static int rubberSize = 7;
     public static int fontSize = 12;

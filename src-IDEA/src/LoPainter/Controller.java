@@ -65,7 +65,7 @@ public class Controller implements Initializable{
         return bl;
     }
 
-    public List<Button> pushMenuItemList(){
+    public List<MenuItem> pushMenuItemList(){
         List<MenuItem> menul = new ArrayList<MenuItem>();
         menul.add(menuSave);
 

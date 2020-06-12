@@ -11,3 +11,9 @@ graph LR
 	基本绘图&保存-->颜色-->更多笔刷-->压感-->图层-->网络-->自动保存
 ```
 > Note: GitHub原来不支持mermaid吗
+
+## 依赖
+
+https://www.cnblogs.com/stars-one/p/10958796.html
+
+↑ maven配置

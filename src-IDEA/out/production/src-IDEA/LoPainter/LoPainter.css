@@ -1,0 +1,14 @@
+#acPane{
+    -fx-background-color: rgb(104, 107, 106);
+}
+
+.button{
+}
+
+#paintCanvas{
+    -fx-background-color: rgb(252, 255, 254);
+}
+
+.menu-bar{
+    -fx-background-color: rgb(211, 214, 213);
+}

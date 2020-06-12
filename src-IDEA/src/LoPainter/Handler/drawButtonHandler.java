@@ -22,20 +22,35 @@ import javafx.scene.text.Font;
 import java.net.URL;
 import java.util.*;
 
-public class ButtonHandler{
+public class drawButtonHandler{
     private Button toolsPencil;
+    private Button toolsEraser;
+    private Button toolsUndo;
+    private Button toolsRedo;
+    private Button toolsLine;
+
     private List<Button> buttonList;
 
-    public ButtonHandler(Button toolsPencil){
-        this.toolsPencil = toolsPencil;
-        toolsPencilHandler();
+    public drawButtonHandler(List<Button> buttonList){
+        this.buttonList=buttonList;
+        //this.toolsPencil = buttonList.get(0);
+        //this.toolsEraser = buttonList.get(1);
+        toolsHandler();
     }
 
-    private void toolsPencilHandler(){
-        toolsPencil.addEventHandler(MouseEvent.MOUSE_CLICKED, (MouseEvent e) -> {
+    private void toolsHandler(){
+        for(Button btn:buttonList){
+            btn.addEventHandler(MouseEvent.MOUSE_CLICKED, (MouseEvent e) -> {
+                String name = ((Button) e.getSource()).getText();//获取它的名字
+                System.out.println(name);
+                Shape.resetToolName("PENCIL");
+            });
+        }
+        /*toolsPencil.addEventHandler(MouseEvent.MOUSE_CLICKED, (MouseEvent e) -> {
             String name = ((Button) e.getSource()).getText();//获取它的名字
             System.out.println(name);
             Shape.resetToolName("PENCIL");
-        });
+        });*/
     }
+
 }

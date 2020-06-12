@@ -22,7 +22,7 @@ import javafx.scene.text.Font;
 import java.net.URL;
 import java.util.*;
 
-public class DrawingHandler{
+public class drawingHandler{
     private GraphicsContext pc;
     private VBox vbo;
     private Group content;
@@ -40,7 +40,7 @@ public class DrawingHandler{
     private double x2;
     private double y2;
 
-    public DrawingHandler(VBox vbo,Label label){
+    public drawingHandler(VBox vbo,Label label){
         this.vbo=vbo;
         this.label=label;
         content = new Group();

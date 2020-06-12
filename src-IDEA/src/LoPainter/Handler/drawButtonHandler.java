@@ -43,7 +43,7 @@ public class drawButtonHandler{
             btn.addEventHandler(MouseEvent.MOUSE_CLICKED, (MouseEvent e) -> {
                 String name = ((Button) e.getSource()).getText();//获取它的名字
                 System.out.println(name);
-                Shape.resetToolName("PENCIL");
+                Shape.resetToolName(name);
             });
         }
         /*toolsPencil.addEventHandler(MouseEvent.MOUSE_CLICKED, (MouseEvent e) -> {
@@ -52,5 +52,4 @@ public class drawButtonHandler{
             Shape.resetToolName("PENCIL");
         });*/
     }
-
 }

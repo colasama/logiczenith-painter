@@ -82,14 +82,14 @@ public class drawingHandler{
                 } else if (Shape.lineSize.equals("填充")) {
                     shapeDrawer.setCanvas(c, Shape.color, true);
                 }
-            }else if(Shape.toolName.equals("BARREL")){
+            }else if(Shape.toolName.equals("油漆")){
                 shapeDrawer.setCanvas(c, Shape.color, true);
             }else{
                 pc.setLineWidth(Shape.rubberSize);
                 shapeDrawer.setCanvas(c, Shape.color, false);
             }
 
-            if (Shape.toolName.equals("RUBBER"))
+            if (Shape.toolName.equals("橡皮"))
                 pc.setStroke(Color.WHITE);
             x1 = event.getX();
             y1 = event.getY();
@@ -118,7 +118,7 @@ public class drawingHandler{
 
         paintCanvas.setOnMouseDragged(event -> {
             label.setText(String.format("%.1f, %.1fpx ", event.getX(), event.getY()));
-            if (Shape.toolName.equals("PEN") || Shape.toolName.equals("RUBBER")) {
+            if (Shape.toolName.equals("铅笔") || Shape.toolName.equals("橡皮")) {
                 pc.lineTo(event.getX(), event.getY());
                 pc.stroke();
             }
@@ -129,7 +129,7 @@ public class drawingHandler{
             y2 = event.getY();
             double width = x2 - x1;
             double height = y2 - y1;
-            if (Shape.toolName.equals("LINE")) {
+            if (Shape.toolName.equals("直线")) {
                 shapeDrawer.drawLine(x1, y1, x2, y2);
             } else if (Shape.toolName.equals("OVAL")) {
                 shapeDrawer.drawOval(x1, y1, width, height);
@@ -146,5 +146,9 @@ public class drawingHandler{
             }
             pc.stroke();
         });
+    }
+
+    public List<Canvas> getDraw(){
+        return listCanvas;
     }
 }

@@ -1,15 +1,18 @@
-package LoPainter.stage;
+package LoPainter.Handler;
 
 import LoPainter.assets.Size;
+import LoPainter.stage.Shape;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
+import javafx.fxml.FXML;
 import javafx.geometry.Pos;
+import javafx.scene.control.ChoiceBox;
 import javafx.scene.control.ComboBox;
 import javafx.scene.layout.VBox;
 import javafx.scene.text.Font;
 
 
-public class DetailPanel {
+public class DetailHandler {
     private VBox content;
     private ComboBox<String> IMGBox;
     private ComboBox<Integer> fontSize;
@@ -18,15 +21,21 @@ public class DetailPanel {
     private ComboBox<Integer> rubberSize;
     private ComboBox<Integer> zero1;
     private ComboBox<Integer> zero2;
+    private ComboBox toolsSize;
+    private ComboBox toolsType;
     private ObservableList<Integer> fontSizeItems = FXCollections.observableArrayList();
     private ObservableList<String> fontFamilyItems = FXCollections.observableArrayList();
     private ObservableList<String> lineSizeItems = FXCollections.observableArrayList();
     private ObservableList<Integer> rubberSizeItems = FXCollections.observableArrayList();
     private ObservableList<String> IMGBoxItems = FXCollections.observableArrayList();
 
-    public DetailPanel() {
-        content = new VBox();
-        content.setAlignment(Pos.CENTER);
+
+    public DetailHandler(VBox content,ComboBox toolsSize, ComboBox toolsType) {
+        this.content = content;
+        this.toolsSize = toolsSize;
+        this.toolsType = toolsType;
+        //content = new VBox();
+        //content.setAlignment(Pos.CENTER);
         // 初始化字号
         fontSize = new ComboBox<Integer>();
         fontSize.setStyle("-fx-base:#888888;-fx-background-color:#666666;");
@@ -112,46 +121,51 @@ public class DetailPanel {
 
     public void setLine() {
         content.getChildren().clear();
-        lineSize.getSelectionModel().select(0);
+        toolsSize.setItems(lineSizeItems);
+        toolsSize.getSelectionModel().select(0);
         Shape.resetLineSize("1");
-        content.getChildren().add(lineSize);
-        content.getChildren().add(zero1);
+        content.getChildren().add(toolsSize);
+        content.getChildren().add(toolsType);
     }
 
     public void  setFont() {
         content.getChildren().clear();
-        fontFamily.getSelectionModel().select(0);
-        fontSize.getSelectionModel().select(0);
+        toolsSize.setItems(fontSizeItems);
+        toolsType.setItems(fontFamilyItems);
+        toolsType.getSelectionModel().select(0);
+        toolsSize.getSelectionModel().select(0);
         Shape.resetFontFamily("AIGDT");
         Shape.resetFontSize(8);
-        content.getChildren().add(fontSize);
-        content.getChildren().add(fontFamily);
+        content.getChildren().add(toolsSize);
+        content.getChildren().add(toolsType);
     }
 
     public void  setRubber() {
         content.getChildren().clear();
-        rubberSize.getSelectionModel().select(0);
+        toolsSize.setItems(rubberSizeItems);
+        toolsSize.getSelectionModel().select(0);
         Shape.resetRubberSize(1);
-        content.getChildren().add(rubberSize);
-        content.getChildren().add(zero1);
+        content.getChildren().add(toolsSize);
+        content.getChildren().add(toolsType);
     }
 
     public void setIMG(){
         content.getChildren().clear();
+        toolsSize.setItems(IMGBoxItems);
         IMGBox.getSelectionModel().select(0);
         Shape.resetIMG("野兽");
-        content.getChildren().add(IMGBox);
-        content.getChildren().add(zero1);
+        content.getChildren().add(toolsSize);
+        content.getChildren().add(toolsType);
     }
 
     public void clear() {
         content.getChildren().clear();
-        content.getChildren().add(zero1);
-        content.getChildren().add(zero2);
+        content.getChildren().add(toolsSize);
+        content.getChildren().add(toolsType);
     }
     public VBox getDetailPanel(){
-        content.getChildren().add(zero1);
-        content.getChildren().add(zero2);
+        content.getChildren().add(toolsSize);
+        content.getChildren().add(toolsType);
         return content;
     }
 }

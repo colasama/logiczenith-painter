@@ -75,7 +75,7 @@ public class drawingHandler{
             c.setOnMouseReleased(paintCanvas.getOnMouseReleased());
             c.setOnMouseMoved(paintCanvas.getOnMouseMoved());
             c.setOnMouseExited(paintCanvas.getOnMouseExited());
-            if (Shape.toolName.equals("OVAL") || Shape.toolName.equals("RECTANGLEZ") || Shape.toolName.equals("CIRCLE") || Shape.toolName.equals("TRI") ||Shape.toolName.equals("RECTANGLEY")) {
+            if (Shape.toolName.equals("Oval") || Shape.toolName.equals("Rect") || Shape.toolName.equals("Cir") || Shape.toolName.equals("Tri") ||Shape.toolName.equals("Rect2")) {
                 if (!Shape.lineSize.equals("填充")) {
                     pc.setLineWidth(Integer.valueOf(Shape.lineSize));
                     shapeDrawer.setCanvas(c, Shape.color, false);
@@ -93,7 +93,7 @@ public class drawingHandler{
                 pc.setStroke(Color.WHITE);
             x1 = event.getX();
             y1 = event.getY();
-            if(Shape.toolName.equals("TEXT")){
+            if(Shape.toolName.equals("文字")){
                 pc.setLineWidth(1);
                 pc.setFont(Font.font(Shape.fontFamily, Shape.fontSize));
                 pc.setStroke(Shape.color);
@@ -129,19 +129,19 @@ public class drawingHandler{
             y2 = event.getY();
             double width = x2 - x1;
             double height = y2 - y1;
-            if (Shape.toolName.equals("直线")) {
+            if (Shape.toolName.equals("Line")) {
                 shapeDrawer.drawLine(x1, y1, x2, y2);
-            } else if (Shape.toolName.equals("OVAL")) {
+            } else if (Shape.toolName.equals("Oval")) {
                 shapeDrawer.drawOval(x1, y1, width, height);
-            } else if (Shape.toolName.equals("RECTANGLEZ")) {
+            } else if (Shape.toolName.equals("Rect")) {
                 shapeDrawer.drawRectangle(x1, y1, width, height);
-            } else if (Shape.toolName.equals("RECTANGLEY")) {
+            } else if (Shape.toolName.equals("Rect2")) {
                 shapeDrawer.drawRoundRectangle(x1, y1, width, height);
-            } else if (Shape.toolName.equals("BARREL")) {
+            } else if (Shape.toolName.equals("油漆")) {
                 shapeDrawer.drawFillCanvas(paintCanvasWidth, paintCanvasHeight);
-            } else if (Shape.toolName.equals("CIRCLE")){
+            } else if (Shape.toolName.equals("Cir")){
                 shapeDrawer.drawCircle(x1,y1,x2,y2);
-            } else if (Shape.toolName.equals("TRI")){
+            } else if (Shape.toolName.equals("Tri")){
                 shapeDrawer.drawTri(x1,y1,x2,y2);
             }
             pc.stroke();

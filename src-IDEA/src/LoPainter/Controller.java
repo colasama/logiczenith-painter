@@ -1,27 +1,11 @@
 package LoPainter;
 
-import LoPainter.assets.Path;
-import LoPainter.assets.Size;
-import LoPainter.shape.Shapes2D;
-import LoPainter.stage.Shape;
+import LoPainter.Handler.DetailHandler;
 import LoPainter.Handler.*;
-import javafx.event.Event;
-import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
-import javafx.scene.Group;
-import javafx.scene.canvas.Canvas;
-import javafx.scene.canvas.GraphicsContext;
-import javafx.scene.control.Button;
-import javafx.scene.control.ColorPicker;
-import javafx.scene.control.Label;
-import javafx.scene.control.MenuItem;
-import javafx.scene.image.Image;
-import javafx.scene.input.MouseEvent;
-import javafx.scene.layout.AnchorPane;
+import javafx.scene.control.*;
 import javafx.scene.layout.VBox;
-import javafx.scene.paint.Color;
-import javafx.scene.text.Font;
 
 import java.net.URL;
 import java.util.*;
@@ -31,6 +15,18 @@ public class Controller implements Initializable{
     @FXML private Label label;
     @FXML private Button toolsPencil;
     @FXML private Button toolsEraser;
+    @FXML private Button toolsMFB;
+    @FXML private Button toolsPaint;
+    @FXML private Button toolsText;
+    @FXML private Button toolsOval;
+    @FXML private Button toolsCircle;
+    @FXML private Button toolsTri;
+    @FXML private Button toolsRect;
+    @FXML private Button toolsRectround;
+    @FXML private Button toolsLine;
+    @FXML private ComboBox toolsSize;
+    @FXML private ComboBox toolsType;
+    @FXML private VBox content;
     /*
     @FXML private Button toolsUndo;
     @FXML private Button toolsRedo;
@@ -38,7 +34,6 @@ public class Controller implements Initializable{
     @FXML private Canvas paintCanvas;
     */
     @FXML private VBox vbo;
-
     @FXML private MenuItem menuSave;
 
     public static drawingHandler dh;
@@ -47,7 +42,8 @@ public class Controller implements Initializable{
         //绘图处理，处理所有的绘图操作
         dh = new drawingHandler(vbo,label);
         //创建绘画按钮列表然后传给ButtonHandler
-        drawButtonHandler bch = new drawButtonHandler(pushDrawButtonList());
+        DetailHandler dp = new DetailHandler(content,toolsSize,toolsType);
+        drawButtonHandler bch = new drawButtonHandler(pushDrawButtonList(),dp);
         //colorPicker处理，处理全局颜色
         colorPickerHandler cph = new colorPickerHandler(colorPicker,label);
         menuHandler menuh = new menuHandler(pushMenuItemList());
@@ -57,6 +53,15 @@ public class Controller implements Initializable{
         List<Button> bl = new ArrayList<Button>();
         bl.add(toolsPencil);
         bl.add(toolsEraser);
+        bl.add(toolsMFB);
+        bl.add(toolsPaint);
+        bl.add(toolsText);
+        bl.add(toolsCircle);
+        bl.add(toolsTri);
+        bl.add(toolsOval);
+        bl.add(toolsRect);
+        bl.add(toolsRectround);
+        bl.add(toolsLine);
         /*
         bl.add(toolsLine);
         bl.add(toolsRedo);

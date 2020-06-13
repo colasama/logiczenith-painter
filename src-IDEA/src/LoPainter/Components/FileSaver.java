@@ -1,4 +1,4 @@
-package LoPainter.shape;
+package LoPainter.Components;
 
 import javafx.embed.swing.SwingFXUtils;
 import javafx.scene.SnapshotParameters;

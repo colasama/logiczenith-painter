@@ -1,12 +1,9 @@
 package LoPainter.Handler;
 
-import LoPainter.assets.Size;
-import LoPainter.stage.Shape;
+import LoPainter.Assets.Size;
+import LoPainter.Assets.Shape;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
-import javafx.fxml.FXML;
-import javafx.geometry.Pos;
-import javafx.scene.control.ChoiceBox;
 import javafx.scene.control.ComboBox;
 import javafx.scene.layout.VBox;
 import javafx.scene.text.Font;

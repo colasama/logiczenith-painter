@@ -1,4 +1,4 @@
-package LoPainter.stage;
+package LoPainter.Components;
 
 import javafx.scene.control.Label;
 

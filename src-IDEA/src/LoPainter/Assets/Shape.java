@@ -1,4 +1,4 @@
-package LoPainter.stage;
+package LoPainter.Assets;
 
 import javafx.scene.paint.Color;
 

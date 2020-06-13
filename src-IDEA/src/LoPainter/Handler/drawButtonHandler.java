@@ -1,5 +1,5 @@
 package LoPainter.Handler;
-import LoPainter.stage.Shape;
+import LoPainter.Assets.Shape;
 import javafx.scene.control.*;
 import javafx.scene.input.MouseEvent;
 

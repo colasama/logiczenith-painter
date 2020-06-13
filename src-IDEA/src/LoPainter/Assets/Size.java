@@ -1,4 +1,4 @@
-package LoPainter.assets;
+package LoPainter.Assets;
 
 public class Size {
     //工具栏按钮
